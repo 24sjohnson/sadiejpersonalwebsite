@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover UMD | Modern Portfolio</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="hobbies.html">Hobbies</a></li>
+            <li><a href="discover.html" class="active">Discover UMD</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="career.html">Career</a></li>
+            <li><a href="game.html">Game</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="section fade-in">
+            <h1>Discover University of Minnesota Duluth</h1>
+            <div class="card">
+                <h2>My UMD Experience</h2>
+                <p>Explore my journey at the University of Minnesota Duluth and discover what makes this institution special.</p>
+            </div>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>Duluth's Features</h3>
+                    <div class="media-container">
+                        <img src="images/IMG_3236.jpeg" alt="Duluth Harbor" class="feature-media">
+                    </div>
+                    <div class="content-section">
+                        <p>What I like about Duluth:</p>
+                        <ul>
+                            <li>I enjoy a nice breeze and for it to be cooler, and Duluth is just that.</li>
+                            <li>Duluth is very close to state parks such as Jay Cooke, Gooseberry, and Moose Lake.</li>
+                            <li>Bellisio's Italian restaurant is located right in Canal Park of Duluth and has amazing food.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Why UMD:</h3>
+                    <p>I knew I wanted to go to a college in the University of Minnesota system and was between the U in the Twin Cities and UMD.</p>
+                    <ul>
+                        <p>Factors:</p>
+                        <li>Was 2 hours away from home, but not too far away that I wouldn't be able to visit my friends and family often.</li>
+                        <li>Duluth having the beautiful Lake Superior and lots of greenery was another reason I chose UMD.</li>
+                        <li>The size of the campus was a big factor for me. I wanted a walkable campus and to be able to find classes easily. UMD is big enough that it isn't like high school, but not as big as the Twin Cities Campus where you could get lost easily.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Marketing Video:</h3>
+                    <div class="media-container">
+                        <video controls preload="metadata" playsinline class="feature-media"
+                            title="UMD Marketing Video"
+                            aria-label="Marketing video showcasing UMD campus and student life">
+                            <source src="marketing video.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="content-section">
+                        <p>What UMD students have to say:</p>
+                        <ul>
+                            <li>Tunnel Systems</li>
+                            <li>Beautiful Scenery</li>
+                            <li>Outdoor Activities</li>
+                           * Video made by group members Samantha, Hannah, and Myself*
+                        </ul>
+                    </div>
+
+                    <style>
+                        .media-container {
+                            width: 100%;
+                            height: 300px;
+                            margin-bottom: 1.5rem;
+                            background: #000;
+                            border-radius: 8px;
+                            overflow: hidden;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+                        
+                        .feature-media {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            border-radius: 8px;
+                            transition: transform 0.3s ease;
+                        }
+                        
+                        .content-section {
+                            padding: 1rem 0;
+                        }
+                        
+                        .content-section p {
+                            margin-bottom: 1rem;
+                        }
+                        
+                        .content-section ul {
+                            margin-left: 1.5rem;
+                        }
+                        
+                        video.feature-media {
+                            object-fit: contain;
+                            background: #000;
+                        }
+
+                        video::-webkit-media-controls {
+                            background-color: rgba(0, 0, 0, 0.5);
+                        }
+                    </style>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; Sadie Johnson 2025 All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sadie Johnson | Professional Resume</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --text-primary: #c5c5c5;
+            --text-secondary: #a3a3a3;
+            --heading-color: #64b5f6;
+            --accent-color: #90caf9;
+            --border-color: #555555;
+        }
+
+        .resume-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .resume-header h1 {
+            color: var(--heading-color);
+        }
+
+        .resume-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .resume-section h2 {
+            color: var(--heading-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .professional-summary {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+        }
+
+        .experience-item {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .experience-item h3 {
+            color: var(--heading-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-meta {
+            color: var(--accent-color);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .experience-duties {
+            list-style-type: none;
+            padding-left: 0;
+            color: var(--text-primary);
+        }
+
+        .experience-duties li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+        }
+
+        .experience-duties li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skills-category {
+            margin-bottom: 1.5rem;
+        }
+
+        .skills-category h3 {
+            color: var(--heading-color);
+            margin-bottom: 1rem;
+        }
+
+        .skills-list {
+            list-style-type: none;
+            padding-left: 0;
+            color: var(--text-primary);
+        }
+
+        .skills-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .skills-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0.5rem;
+            color: var(--accent-color);
+        }
+
+        .card {
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+        }
+
+        .education-text h3 {
+            color: var(--heading-color);
+        }
+
+        .education-text p {
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 768px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="hobbies.html">Hobbies</a></li>
+            <li><a href="discover.html">Discover UMD</a></li>
+            <li><a href="resume.html" class="active">Resume</a></li>
+            <li><a href="career.html">Career</a></li>
+            <li><a href="game.html">Game</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="section fade-in">
+            <div class="resume-header">
+                <h1>Sadie Johnson</h1>
+            </div>
+
+            <div class="resume-section">
+                <div class="card">
+                    <div class="professional-summary">
+                        Motivated and detail-oriented professional with experience in customer service, hospitality, and team coordination. Skilled at creating positive guest experiences, maintaining efficient operations, and supporting both front-of-house and back-of-house staff. Currently pursuing a Bachelor of Business Administration in Marketing with strong interpersonal and organizational skills that contribute to team success.
+                    </div>
+                </div>
+            </div>
+
+            <div class="resume-section">
+                <h2>Professional Experience</h2>
+                <div class="card">
+                    <div class="experience-item">
+                        <h3>Venue Ambassador</h3>
+                        <div class="experience-meta">
+                            Grand Casino Mille Lacs – 1991 Restaurant | June 2022 – August 2025
+                        </div>
+                        <ul class="experience-duties">
+                            <li>Delivered exceptional guest service by greeting and seating guests, ensuring comfort and satisfaction</li>
+                            <li>Coordinated reservations and large parties, reducing wait times and improving guest flow</li>
+                            <li>Supported kitchen and server staff by clearly communicating orders, special requests, and guest needs</li>
+                            <li>Maintained a clean, organized dining environment by expediting orders, checking presentation and accuracy, and restocking supplies</li>
+                            <li>Enhanced guest experience by anticipating needs, resolving issues, and fostering a welcoming atmosphere</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resume-section">
+                <h2>Education</h2>
+                <div class="card">
+                    <div class="education-item">
+                        <div class="education-text">
+                            <h3>University of Minnesota Duluth</h3>
+                            <p>Bachelor of Business Administration in Marketing</p>
+                            <p>Expected Graduation: May 2028</p>
+                        </div>
+                        <div class="education-logo">
+                            <img src="images/Minnesota_Duluth_Bulldogs_logo.svg.png" alt="UMD Logo" width="100">
+                        </div>
+                    </div>
+                    <div class="education-item">
+                        <div class="education-text">
+                            <h3>Central Lakes College</h3>
+                            <p>Associate of Arts</p>
+                            <p>Completed: May 2025</p>
+                        </div>
+                        <div class="education-logo">
+                            <img src="images/clclogo.png" alt="Central Lakes College Logo" width="150">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resume-section">
+                <h2>Professional Skills</h2>
+                <div class="card">
+                    <div class="skills-grid">
+                        <div class="skills-category">
+                            <h3>Core Competencies</h3>
+                            <ul class="skills-list">
+                                <li>Customer Service & Hospitality</li>
+                                <li>Communication & Team Collaboration</li>
+                                <li>Problem Solving & Conflict Resolution</li>
+                                <li>Time Management & Organization</li>
+                                <li>Order Accuracy & Quality Control</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card download-section">
+                <h3>Download Resume</h3>
+                <p>Get a detailed version of my resume in PDF format.</p>
+                <a href="files/Resume 2025.pdf" class="button download-button" download="Sadie_Johnson_Resume_2025.pdf" onclick="handleDownload(event)">
+                    <span class="download-icon">📄</span>
+                    Download PDF
+                </a>
+                <p id="downloadStatus" class="download-status"></p>
+
+                <style>
+                    .download-section {
+                        text-align: center;
+                        padding: 2rem;
+                    }
+
+                    .download-button {
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 10px;
+                        padding: 1rem 2rem;
+                        margin-top: 1rem;
+                        background: var(--primary-navy);
+                        color: var(--white);
+                        border: 2px solid var(--accent-blue);
+                        border-radius: 8px;
+                        font-weight: 600;
+                        transition: all 0.3s ease;
+                    }
+
+                    .download-button:hover {
+                        background: var(--accent-blue);
+                        color: var(--primary-navy);
+                        transform: translateY(-2px);
+                        box-shadow: 0 4px 12px rgba(100, 255, 218, 0.2);
+                    }
+
+                    .download-icon {
+                        font-size: 1.2rem;
+                    }
+
+                    .download-button:active {
+                        transform: translateY(0);
+                    }
+
+                    .download-status {
+                        margin-top: 1rem;
+                        font-size: 0.9rem;
+                        min-height: 20px;
+                    }
+                </style>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; Sadie Johnson 2025 All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        function handleDownload(event) {
+            const link = event.currentTarget;
+            const status = document.getElementById('downloadStatus');
+            
+            fetch(link.href)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('File not found');
+                    }
+                    status.textContent = 'Download starting...';
+                    status.style.color = 'var(--accent-color)';
+                })
+                .catch(error => {
+                    console.error('Download failed:', error);
+                    status.textContent = 'Download failed. Please try again later.';
+                    status.style.color = '#ff6b6b';
+                    event.preventDefault();
+                });
+        }
+    </script>
+</body>
+</html>

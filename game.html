@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe - Maroon & Gold Bulldogs</title>
+    <style>
+        /* Navigation Styles */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+
+        .nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+
+        .nav-list li a {
+            text-decoration: none;
+            color: #2c4a3c;
+            font-size: 1.1em;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+
+        .nav-list li a:hover {
+            background-color: rgba(92, 131, 116, 0.1);
+            color: #1a472a;
+        }
+
+
+        .nav-list li a.active {
+            border-bottom: 2px solid #5c8374;
+        }
+
+
+        /* Adjust body to account for fixed nav */
+        body {
+            margin: 0;
+            padding: 70px 0 0 0;
+            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #800020 0%, #B8860B 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #B8860B;
+        }
+
+
+        .game-container {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            border: 3px solid #B8860B;
+            margin: 20px;
+        }
+
+
+        h1 {
+            font-size: 2.5em;
+            color: #800020;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+
+        .game-info {
+            font-size: 1.2em;
+            color: #800020;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+
+        .game-board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+            gap: 5px;
+            margin: 30px auto;
+            background-color: #800020;
+            padding: 10px;
+            border-radius: 15px;
+            box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: fit-content;
+        }
+
+
+        .cell {
+            background-color: #B8860B;
+            border: none;
+            border-radius: 10px;
+            font-size: 2.5em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #800020;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .cell:hover {
+            background-color: #DAA520;
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+
+        .cell:disabled {
+            cursor: not-allowed;
+            opacity: 0.8;
+        }
+
+
+        .cell.x {
+            color: #800020;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-size: 3em;
+        }
+
+
+        .cell.o {
+            color: #B8860B;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-size: 3em;
+        }
+
+
+        .reset-button {
+            background: linear-gradient(45deg, #800020, #B8860B);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .reset-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+
+        .reset-button:active {
+            transform: translateY(0);
+        }
+
+
+        .winner-message {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: rgba(184, 134, 11, 0.2);
+            border: 2px solid #B8860B;
+        }
+
+
+        .winner-message.winner-x {
+            color: #800020;
+            background-color: rgba(128, 0, 32, 0.2);
+            border-color: #800020;
+        }
+
+
+        .winner-message.winner-o {
+            color: #B8860B;
+            background-color: rgba(184, 134, 11, 0.2);
+            border-color: #B8860B;
+        }
+
+
+        .winner-message.tie {
+            color: #666;
+            background-color: rgba(102, 102, 102, 0.2);
+            border-color: #666;
+        }
+
+        .music-control {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .music-button {
+            background: linear-gradient(45deg, #800020, #B8860B);
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .music-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .music-button.playing {
+            background: linear-gradient(45deg, #B8860B, #800020);
+        }
+
+        @media (max-width: 600px) {
+            .game-container {
+                padding: 20px;
+                margin: 20px;
+            }
+           
+            .game-board {
+                grid-template-columns: repeat(3, 80px);
+                grid-template-rows: repeat(3, 80px);
+            }
+
+
+            .cell {
+                font-size: 2em;
+            }
+
+
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-menu">
+        <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="discover.html">Discover</a></li>
+            <li><a href="career.html">Career</a></li>
+            <li><a href="hobbies.html">Hobbies</a></li>
+            <li><a href="game.html" class="active">Game</a></li>
+            <li><a href="resume.html">Resume</a></li>
+        </ul>
+    </nav>
+   
+    <div class="music-control">
+        <button id="musicToggle" class="music-button" onclick="toggleMusic()">
+            <span id="musicIcon">🔈</span>
+        </button>
+    </div>
+
+    <div class="game-container">
+        <h1>🎮 Tic Tac Toe</h1>
+        <div class="game-info">You are 🐕 Bulldogs, Computer is 🏫 UMN</div>
+        <div class="game-board" id="gameBoard">
+            <button class="cell" data-index="0"></button>
+            <button class="cell" data-index="1"></button>
+            <button class="cell" data-index="2"></button>
+            <button class="cell" data-index="3"></button>
+            <button class="cell" data-index="4"></button>
+            <button class="cell" data-index="5"></button>
+            <button class="cell" data-index="6"></button>
+            <button class="cell" data-index="7"></button>
+            <button class="cell" data-index="8"></button>
+        </div>
+        <div id="winnerMessage"></div>
+        <button class="reset-button" onclick="resetGame()">🔄 New Game</button>
+<p>GAME DEVELOPED BY GROUP MEMBERS HANNAH, SAMANTHA, AND MYSELF</p>
+    </div>
+
+
+
+
+    <script>
+        let board = ['', '', '', '', '', '', '', '', ''];
+        let currentPlayer = 'X';
+        let gameActive = true;
+
+        const winningConditions = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6]
+        ];
+
+        const cells = document.querySelectorAll('.cell');
+        const winnerMessage = document.getElementById('winnerMessage');
+
+        cells.forEach((cell, index) => {
+            cell.addEventListener('click', () => makeMove(index));
+        });
+
+        function makeMove(index) {
+            if (board[index] !== '' || !gameActive || currentPlayer !== 'X') return;
+
+            // Player makes move (always X - Bulldogs)
+            board[index] = 'X';
+            cells[index].textContent = '🐕';
+            cells[index].classList.add('x');
+            cells[index].disabled = true;
+
+            // Play move sound effect
+            if (window.gameMusic) {
+                window.gameMusic.playMoveSound();
+            }
+
+            if (checkWinner()) {
+                gameActive = false;
+                showWinner('X');
+                return;
+            }
+
+            if (checkTie()) {
+                gameActive = false;
+                showWinner('tie');
+                return;
+            }
+
+            // Switch to computer's turn (O - UMN)
+            currentPlayer = 'O';
+            setTimeout(() => {
+                makeComputerMove();
+            }, 500);
+        }
+
+        function makeComputerMove() {
+            if (!gameActive) return;
+
+            // Simple AI: try to win, then block, then take center, then corners, then edges
+            let move = findWinningMove('O') ||
+                      findWinningMove('X') ||
+                      (board[4] === '' ? 4 : null) ||
+                      findCornerMove() ||
+                      findEdgeMove();
+
+            if (move !== null) {
+                board[move] = 'O';
+                cells[move].textContent = '🏫';
+                cells[move].classList.add('o');
+                cells[move].disabled = true;
+
+                // Play move sound effect
+                if (window.gameMusic) {
+                    window.gameMusic.playMoveSound();
+                }
+
+                if (checkWinner()) {
+                    gameActive = false;
+                    showWinner('O');
+                    return;
+                }
+
+                if (checkTie()) {
+                    gameActive = false;
+                    showWinner('tie');
+                    return;
+                }
+
+                currentPlayer = 'X';
+            }
+        }
+
+        function findWinningMove(player) {
+            for (let condition of winningConditions) {
+                const [a, b, c] = condition;
+                if (board[a] === player && board[b] === player && board[c] === '') {
+                    return c;
+                }
+                if (board[a] === player && board[c] === player && board[b] === '') {
+                    return b;
+                }
+                if (board[b] === player && board[c] === player && board[a] === '') {
+                    return a;
+                }
+            }
+            return null;
+        }
+
+        function findCornerMove() {
+            const corners = [0, 2, 6, 8];
+            for (let corner of corners) {
+                if (board[corner] === '') {
+                    return corner;
+                }
+            }
+            return null;
+        }
+
+        function findEdgeMove() {
+            const edges = [1, 3, 5, 7];
+            for (let edge of edges) {
+                if (board[edge] === '') {
+                    return edge;
+                }
+            }
+            return null;
+        }
+
+        function checkWinner() {
+            for (let condition of winningConditions) {
+                const [a, b, c] = condition;
+                if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function checkTie() {
+            return board.every(cell => cell !== '');
+        }
+
+        function showWinner(winner) {
+            const message = document.getElementById('winnerMessage');
+            if (winner === 'X') {
+                message.textContent = '🎉 Bulldogs Win! 🎉';
+                message.className = 'winner-message winner-x';
+            } else if (winner === 'O') {
+                message.textContent = '🏆 UMN Wins! 🏆';
+                message.className = 'winner-message winner-o';
+            } else {
+                message.textContent = '🤝 It\'s a Tie! 🤝';
+                message.className = 'winner-message tie';
+            }
+            
+            // Play victory sound
+            if (window.gameMusic) {
+                window.gameMusic.playVictorySound(winner);
+            }
+        }
+
+        function resetGame() {
+            board = ['', '', '', '', '', '', '', '', ''];
+            currentPlayer = 'X';
+            gameActive = true;
+           
+            cells.forEach(cell => {
+                cell.textContent = '';
+                cell.disabled = false;
+                cell.classList.remove('x', 'o');
+            });
+           
+            winnerMessage.textContent = '';
+            winnerMessage.className = '';
+        }
+
+        // Enhanced Audio System Integration
+        let musicRunning = false;
+        let musicEnabled = false;
+        
+        // Initialize audio on first user interaction
+        function initializeGameAudio() {
+            document.addEventListener('click', function initAudio() {
+                if (window.gameMusic) {
+                    window.gameMusic.initializeAudio();
+                    musicEnabled = true;
+                }
+                document.removeEventListener('click', initAudio);
+            }, { once: true });
+        }
+        
+        function toggleMusic() {
+            const musicIcon = document.getElementById('musicIcon');
+            const musicToggle = document.getElementById('musicToggle');
+            
+            if (!musicRunning) {
+                // Start music
+                if (window.gameMusic) {
+                    window.gameMusic.startMusic();
+                    musicRunning = true;
+                    musicEnabled = true;
+                    musicIcon.textContent = '🔊';
+                    musicToggle.classList.add('playing');
+                }
+            } else {
+                // Stop music
+                if (window.gameMusic) {
+                    window.gameMusic.stopMusic();
+                }
+                musicRunning = false;
+                musicIcon.textContent = '🔈';
+                musicToggle.classList.remove('playing');
+            }
+        }
+
+        // Initialize audio system when game loads
+        initializeGameAudio();
+        
+        // Ensure gameMusic is accessible globally
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wait for game-audio.js to load and expose gameMusic
+            setTimeout(() => {
+                if (window.gameMusic) {
+                    console.log('Audio system initialized successfully');
+                }
+            }, 100);
+        });
+    </script>
+    <script src="js/game-audio.js"></script>
+
+</body>
+</html>

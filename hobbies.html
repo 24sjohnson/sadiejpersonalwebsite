@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hobbies | Modern Portfolio</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="hobbies.html" class="active">Hobbies</a></li>
+            <li><a href="discover.html">Discover UMD</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="career.html">Career</a></li>
+            <li><a href="game.html">Game</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="section fade-in">
+            <h1>My Hobbies & Interests</h1>
+            <div class="card">
+                <h2>What I Love to Do</h2>
+                <p>Explore my various interests and activities that keep me inspired and energized. These hobbies are important to me because they are activities that I can enjoy with my friends and family.</p>
+            </div>
+
+
+                <h2 class="section-title">Theater & Musical Productions</h2>
+                <div class="outdoor-activities-grid">
+                    <!-- Hamilton Card -->
+                    <div class="card activity-card">
+                        <img src="images/hamilton.jpg" alt="Hamilton show at Orpheum Theatre" class="activity-image">
+                        <div class="card-content">
+                            <h3>Hamilton</h3>
+                            <p>My introduction to musical theater and still my favorite production. <em>Hamilton</em> perfectly combines American History with modern musical elements. The cast's performance was absolutely incredible, making history come alive in an engaging way.</p>
+                            <div class="activity-details">
+                                <ul>
+                                    <li>Performed at the Orpheum Theatre</li>
+                                    <li>First musical experience</li>
+                                    <li>Favorite musical production</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Six Card -->
+                    <div class="card activity-card">
+                        <img src="images/six.JPEG" alt="Broadway show Six" class="activity-image">
+                        <div class="card-content">
+                            <h3>Six on Broadway</h3>
+                            <p>During my senior year of high school, I had the incredible opportunity to experience <em>Six</em> on Broadway in New York. The energy and atmosphere of a Broadway show was absolutely unforgettable, making me eager to return for more productions.</p>
+                            <div class="activity-details">
+                                <ul>
+                                    <li>Broadway experience in New York</li>
+                                    <li>Senior year highlight</li>
+                                    <li>Unique modern take on history</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Grease Card -->
+                    <div class="card activity-card">
+                        <img src="images/grease.JPG" alt="Grease at Chanhassen" class="activity-image">
+                        <div class="card-content">
+                            <h3>Grease at Chanhassen</h3>
+                            <p>Recently enjoyed <em>Grease</em> at the Chanhassen Dinner Theater, combining great entertainment with dining. The dinner theater format added an extra layer of enjoyment to the classic musical, creating a truly memorable evening.</p>
+                            <div class="activity-details">
+                                <ul>
+                                    <li>Dinner theater experience</li>
+                                    <li>Classic musical production</li>
+                                    <li>Interactive atmosphere</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="section-title">Enjoying the Outdoors</h2>
+                <div class="outdoor-activities-grid">
+                    <!-- Hiking Card -->
+                    <div class="card activity-card">
+                        <img src="images/jaycooke.jpg" alt="River at JayCooke State Park" class="activity-image">
+                        <div class="card-content">
+                            <h3>Hiking Adventures</h3>
+                            <p>I love exploring the beautiful Minnesota outdoors through hiking. The trails at Jay Cooke State Park offer some of my favorite hiking experiences, with stunning views of the river and surrounding landscape.</p>
+                            <div class="activity-details">
+                                <ul>
+                                    <li>Beautiful bridge walk across the river</li>
+                                    <li>Regular nature walks</li>
+                                    <li>Scenic viewpoints</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sight Seeing Card -->
+                    <div class="card activity-card">
+                        <img src="images/splitrocklighthouse.jpg" alt="View from Split Rock Lighthouse" class="activity-image">
+                        <div class="card-content">
+                            <h3>North Shore Explorations</h3>
+                            <p>My family loves taking "mini" vacations along the North Shore. We've explored everything from the Canadian border to the Black Sand Beach, with Split Rock Lighthouse being one of our favorite stops.</p>
+                            <div class="activity-details">
+                                <ul>
+                                    <li>Split Rock Lighthouse visits</li>
+                                    <li>Black Sand Beach adventures</li>
+                                    <li>North Shore road trips</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- National Park Card -->
+                    <div class="card activity-card">
+                        <img src="images/nationalparktree.jpg" alt="Voyageur's National Park" class="activity-image">
+                        <div class="card-content">
+                            <h3>National Park Adventures</h3>
+                            <p>Summer 2025 brought an exciting road trip to Voyageur National Park near International Falls, MN. The natural beauty and wilderness of the park provided unforgettable experiences.</p>
+                            <div class="activity-details">
+                                <ul>
+                                    <li>Voyageur National Park exploration</li>
+                                    <li>Summer road trips with friends</li>
+                                    <li>Wildlife spotting</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <style>
+                    .outdoor-activities-grid {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                        gap: 2rem;
+                        padding: 2rem 0;
+                    }
+
+                    .activity-card {
+                        display: flex;
+                        flex-direction: column;
+                        overflow: hidden;
+                        transition: transform 0.3s ease, box-shadow 0.3s ease;
+                    }
+
+                    .activity-card:hover {
+                        transform: translateY(-5px);
+                        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+                    }
+
+                    .activity-image {
+                        width: 100%;
+                        height: 200px;
+                        object-fit: cover;
+                        border-radius: 8px 8px 0 0;
+                    }
+
+                    .card-content {
+                        padding: 1.5rem;
+                    }
+
+                    .activity-details {
+                        margin-top: 1rem;
+                    }
+
+                    .activity-details ul {
+                        list-style-type: none;
+                        padding: 0;
+                    }
+
+                    .activity-details li {
+                        padding: 0.5rem 0;
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                    }
+
+                    .activity-details li:last-child {
+                        border-bottom: none;
+                    }
+
+                    .section-title {
+                        text-align: center;
+                        margin: 2rem 0;
+                        font-size: 2rem;
+                        color: var(--text-primary);
+                    }
+                </style>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; Sadie Johnson 2025 All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+
+
